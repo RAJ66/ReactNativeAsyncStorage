@@ -46,8 +46,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Hello world</Text>
+      <View style={styles.container}>
+        <Text>titulo depois</Text>
         <TextInput
           value={this.state.textInputData}
           style={styles.TextInputStyle}
@@ -78,12 +78,17 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000000',
+    
+  },
   TextInputStyle: {
     textAlign: 'center',
     height: 40,
     width: '100%',
     borderWidth: 1,
-    backgroundColor: 'orange',
+    backgroundColor: '#FF8000',
   },
   button: {
     width: '100%',
@@ -99,6 +104,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     textAlign: 'center',
+    color:'#FF8000',
+    borderColor: '#FF8000',
+    borderWidth: 1,
+    marginTop:10,
   },
 });
 
