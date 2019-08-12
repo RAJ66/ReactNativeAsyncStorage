@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  AsyncStorage  from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage'
 import {
   StyleSheet,
   View,
@@ -36,6 +36,13 @@ export default class App extends Component {
     }
   };
 
+  //funçao para obter o valor guardado
+  getValueFunction = () => {
+    AsyncStorage.getItem('any_key_here').then
+      (
+        value => this.setState({ getValue: value })
+      );
+  }
 
   render() {
     return (
@@ -55,7 +62,17 @@ export default class App extends Component {
           style={styles.button}>
           <Text style={styles.buttonText}> SAVE VALUE </Text>
         </TouchableOpacity>
-      </View>
+
+        <TouchableOpacity 
+        onPress={this.getValueFunction} 
+        style={styles.button}>
+          <Text style={styles.buttonText}> GET VALUE </Text>
+        </TouchableOpacity>
+
+        <Text style={styles.text}> {this.state.getValue} </Text>
+      
+      
+      </View >
     );
   }
 }
@@ -77,6 +94,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
+    textAlign: 'center',
+  },
+  text: {
+    fontSize: 20,
     textAlign: 'center',
   },
 });
